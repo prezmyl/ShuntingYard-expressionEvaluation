@@ -7,6 +7,8 @@ using namespace std;
 
 class ExpressionParser
 {
+    private:
+        static bool IsThisDelimiter(char ch, string delimitrList);
     public:
         static Queue* Split(string input, string del);
 };

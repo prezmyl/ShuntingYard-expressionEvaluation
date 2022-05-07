@@ -18,12 +18,16 @@ void postfic_notion()
 
 int main()
 {   
-    const string setOperators = "+-*/^";
+    const string setOperators = "+-*/^()";
     const string input = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"; //1.zp inicializace
     const string input2("3 + 4 * 2 / ( 1 - 5 )"); // 2.zp inicializace
     //cin << input;
 
-    
+
+    Queue* inputQueue = ExpressionParser::Split(input2, setOperators);
+    inputQueue->Display();
+
+    /*
     //Test Stack
     Stack myStack;
     for (size_t i = 0; i < 5; i++)
@@ -69,7 +73,7 @@ int main()
     }
     
     delete myQueue;
-
+    */
 
  
 

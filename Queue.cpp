@@ -71,10 +71,13 @@ string Queue::Deque()
 void Queue::Display()
 {
     Node *current = this->front;
+    size_t i = 0;
+    //size_t total = this->count;
     while (current)
     {
-        cout << current->GetData() << " ";
+        cout << i << ".node\"" << current->GetData() << "\" | ";
         current = current->GetNext();
+        i++;
     }
 
     cout << endl;
