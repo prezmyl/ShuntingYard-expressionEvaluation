@@ -6,6 +6,8 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "ExpressionParser.hpp"
+
+enum Associates { none, left_to_right, right_to_left };
 class ShuntingYard
 {
     private:
@@ -16,6 +18,7 @@ class ShuntingYard
         int GetOperatorPrio(string op);
         bool IsNumeric(string str);
         bool IsOperator(char ch, string delimitrList);
+        int GetAssociate(string str);
 };
 
 #endif

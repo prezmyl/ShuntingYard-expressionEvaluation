@@ -2,7 +2,10 @@
 
 using namespace std;
 
- 
+
+
+
+
 bool ShuntingYard::IsNumeric(string str)
 {
     return !str.empty() && str.find_first_not_of("0123456789") == std::string::npos;
@@ -20,6 +23,19 @@ bool ShuntingYard::IsOperator(char ch, string delimitrList)
         i++;
     }
     return false;
+    
+}
+
+int ShuntingYard::GetAssociate(string str)
+{
+    if (str.compare("^") == 0)
+    {
+        return right_to_left;
+    }
+    else
+    {
+        return left_to_right;
+    }
     
 }
 
@@ -54,6 +70,9 @@ ShuntingYard::ShuntingYard(string input, string operators, string parenthesis)
 
     //const string input2("3 + 4 * 2 / ( 1 - 5 )");
     // 3 4 2 * 1 5 - / +
+
+    //const string input = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"
+    //3 4 2 × 1 5 − 2 3 ^ ^ ÷ +
     //while tokens
     while (!inputQ->isEmpty())
     {
@@ -80,9 +99,15 @@ ShuntingYard::ShuntingYard(string input, string operators, string parenthesis)
         
         if (this->IsOperator(toProcess[0], operators)) //BLBE Z pohledu modularity
         {   
+
             cout << "opsPROCESSING: " << toProcess << endl;
+            cout << "!!!!!!!associate: "<< this->GetAssociate(toProcess) << endl;
+            cout << "!!!!!!!prio: "<< this->GetOperatorPrio(toProcess) << endl;
             cout << "PEEK: " << opStack->GetTop() << endl;
-            while (!opStack->isEmpty() && this->GetOperatorPrio(toProcess) <= this->GetOperatorPrio(opStack->GetTop()) && opStack->GetTop().compare("(")!= 0) //zavorky a asociativita
+            
+            while ((!opStack->isEmpty() && this->GetOperatorPrio(toProcess) < this->GetOperatorPrio(opStack->GetTop()) 
+            && opStack->GetTop().compare("(")!= 0) || (this->GetOperatorPrio(toProcess) == this->GetOperatorPrio(opStack->GetTop()) 
+            && this->GetAssociate(toProcess) == left_to_right)) //zavorky a asociativita
             {
                 outputQ->Enque(opStack->GetTop());
                 opStack->Pop();

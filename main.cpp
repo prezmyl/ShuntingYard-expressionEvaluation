@@ -30,7 +30,7 @@ int main()
     const string operators = "+-*/^";  //nebo neco jako enum??? vyctovym typem
     const string parenthesis = "()";
 
-    ShuntingYard* solution = new ShuntingYard(input2, operators, parenthesis);
+    ShuntingYard* solution = new ShuntingYard(input, operators, parenthesis);
 
     delete solution;
 
