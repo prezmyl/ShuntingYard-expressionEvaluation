@@ -4,8 +4,9 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "ExpressionParser.hpp"
+#include "ShuntingYard.hpp"
 
-void shunting_yard()
+void shunting_yard(Queue* inputQ, Queue* outputQ, Stack* oparSt)
 {
     ;
 }
@@ -15,18 +16,30 @@ void postfic_notion()
     ;
 }
 
+//smas ty nepotrebne konstruktoru ve tridach!!
 
 int main()
 {   
-    const string setOperators = "+-*/^()";
+    //input
     const string input = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"; //1.zp inicializace
-    const string input2("3 + 4 * 2 / ( 1 - 5 )"); // 2.zp inicializace
+    const string input1("((3 + 4 * 2 / ( 1 - 5 )+"); // 2.zp inicializace
+    const string input2("3 + 4 * 2 / ( 1 - 5 )");
     //cin << input;
 
+    //set of operators and parenthesis
+    const string operators = "+-*/^";  //nebo neco jako enum??? vyctovym typem
+    const string parenthesis = "()";
 
-    Queue* inputQueue = ExpressionParser::Split(input2, setOperators);
-    inputQueue->Display();
+    ShuntingYard* solution = new ShuntingYard(input2, operators, parenthesis);
 
+    delete solution;
+
+    /*Queue* inputQueue = ExpressionParser::Split(input2, operators + parenthesis);
+    inputQueue->Display();*/
+
+
+
+    //EMPTY QUES STACKS to delete all objebcts MEMORY LEAKS!!!
     /*
     //Test Stack
     Stack myStack;

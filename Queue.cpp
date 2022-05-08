@@ -17,7 +17,7 @@ Queue::~Queue()
 
 size_t Queue::GetCount()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     return this->count;
 }
 
@@ -31,9 +31,18 @@ Node* Queue::GetRear()
     return this->rear;
 }
 
+bool Queue::isEmpty()
+{
+    if (this->front)
+    {
+        return false;
+    }
+    return true;
+}
+
 void Queue::Enque(string data)
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     Node* toAdd = new Node(data);
     if (this->rear)
     {   
@@ -54,11 +63,16 @@ void Queue::Enque(string data)
 
 string Queue::Deque()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     if (this->front)
     {
         Node* toRemove = this->front;
-        this->front = this->front->GetNext();
+        this->front = this->front->GetNext(); //pokud posledni prvek tak ten ukazuje na null a to nam udela prazdnou frontu(o co this->rear?)
+        if (!this->front)
+        {
+            this->rear = nullptr;
+        }
+        
         string data = toRemove->GetData();
         delete toRemove;
         return data;

@@ -19,7 +19,9 @@ public:
     Node* GetFront();
     Node* GetRear();
     ~Queue();
+    bool isEmpty();
     void Display();
+
 };
 
 

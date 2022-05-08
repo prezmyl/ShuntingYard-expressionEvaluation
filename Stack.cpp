@@ -16,7 +16,7 @@ Stack::~Stack()
 
 bool Stack::isEmpty()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     if (this->top)
     {
         return false;
@@ -27,24 +27,24 @@ bool Stack::isEmpty()
 
 size_t Stack::GetCount()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     return this->count;
 }
 
 string Stack::GetTop()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     if (this->top)
     {
-        return string();
+        return this->top->GetData();
     }
-    return this->top->GetData();
+    return string();
     
 }
 
 void Stack::Display()
 {
-    cout <<__func__<< endl;
+   // cout <<__func__<< endl;
     Node* current = this->top;
     while (current)
     {
@@ -59,7 +59,7 @@ void Stack::Display()
 
 void Stack::Push(string data)
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     Node *toAdd = new Node(data);
     //musim rozlisit prazdny/neprazdny?? poradi si s obojim??
     toAdd->SetNext(this->top);
@@ -70,7 +70,7 @@ void Stack::Push(string data)
 
 string Stack::Pop()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     if (this->top)
     {
         Node* toRemove = this->top;
