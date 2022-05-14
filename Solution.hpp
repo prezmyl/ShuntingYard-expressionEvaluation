@@ -1,5 +1,5 @@
-#ifndef SHUNTINGYARD_HPP
-#define SHUNTINGYARD_HPP
+#ifndef SOLUTION_HPP
+#define SOLUTION_HPP
 #include<iostream>
 #include<string>
 
@@ -8,17 +8,27 @@
 #include "ExpressionParser.hpp"
 
 enum Associates { none, left_to_right, right_to_left };
-class ShuntingYard
+
+class Solution
 {
     private:
-        string input;
+        //Queue* inputQ;
+        Queue* outputQ;
         string operators;
+        float result;
     public:
-        ShuntingYard(string input, string operators, string parenthesis);
+        Solution(string operators);
+        ~Solution();
+        void ShuntingYard(Queue* inputQ);
+        void PostfixEval();
         int GetOperatorPrio(string op);
+        int GetNumberOfOperands(string op);
         bool IsNumeric(string str);
         bool IsOperator(char ch, string delimitrList);
         int GetAssociate(string str);
+        float Calculation(float x, float y, string op);
+        float DisplayResult();
+        
 };
 
 #endif

@@ -4,7 +4,7 @@ using namespace std;
 
 Queue::Queue()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
     this->front = nullptr;
     this->rear = nullptr;
     this->count = 0;
@@ -12,7 +12,7 @@ Queue::Queue()
 
 Queue::~Queue()
 {
-    cout <<__func__<< endl;
+    //cout <<__func__<< endl;
 }
 
 size_t Queue::GetCount()
@@ -96,4 +96,12 @@ void Queue::Display()
 
     cout << endl;
     
+}
+
+void Queue::DequeAll()
+{
+    while (!this->isEmpty())
+    {
+        this->Deque();
+    }
 }

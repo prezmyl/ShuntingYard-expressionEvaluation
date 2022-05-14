@@ -11,7 +11,7 @@ Stack::Stack()
 
 Stack::~Stack()
 {
-    cout <<__func__<< endl;
+  //  cout <<__func__<< endl;
 }
 
 bool Stack::isEmpty()
@@ -44,7 +44,7 @@ string Stack::GetTop()
 
 void Stack::Display()
 {
-   // cout <<__func__<< endl;
+    cout <<__func__<< endl;
     Node* current = this->top;
     while (current)
     {
@@ -82,6 +82,16 @@ string Stack::Pop()
     }
     
     return string();
+    
+}
+
+void Stack::PopAll()
+{
+    //cout <<__func__<< endl;
+    while (!(this->isEmpty()))
+    {
+        this->Pop();
+    }
     
 }
 

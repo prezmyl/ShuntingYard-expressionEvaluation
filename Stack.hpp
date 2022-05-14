@@ -15,6 +15,7 @@ class Stack
         ~Stack();
         void Push(string data);
         string Pop();
+        void PopAll();
         bool isEmpty();
         size_t GetCount();
         string GetTop();

@@ -4,17 +4,9 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "ExpressionParser.hpp"
-#include "ShuntingYard.hpp"
+#include "Solution.hpp"
 
-void shunting_yard(Queue* inputQ, Queue* outputQ, Stack* oparSt)
-{
-    ;
-}
 
-void postfic_notion()
-{
-    ;
-}
 
 //smas ty nepotrebne konstruktoru ve tridach!!
 
@@ -24,15 +16,25 @@ int main()
     const string input = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"; //1.zp inicializace
     const string input1("((3 + 4 * 2 / ( 1 - 5 )+"); // 2.zp inicializace
     const string input2("3 + 4 * 2 / ( 1 - 5 )");
+    const string input3("4^2");
     //cin << input;
 
     //set of operators and parenthesis
     const string operators = "+-*/^";  //nebo neco jako enum??? vyctovym typem
     const string parenthesis = "()";
 
-    ShuntingYard* solution = new ShuntingYard(input, operators, parenthesis);
+    Queue* inputQ = ExpressionParser::Split(input3, operators + parenthesis);
+
+    Solution* solution = new Solution(operators);
+    solution->ShuntingYard(inputQ);
+    solution->PostfixEval();
+    cout << solution->DisplayResult()<< endl;
+
 
     delete solution;
+    inputQ->DequeAll();
+    inputQ->Display();
+    delete inputQ;
 
     /*Queue* inputQueue = ExpressionParser::Split(input2, operators + parenthesis);
     inputQueue->Display();*/
@@ -40,9 +42,9 @@ int main()
 
 
     //EMPTY QUES STACKS to delete all objebcts MEMORY LEAKS!!!
-    /*
+    
     //Test Stack
-    Stack myStack;
+   /* Stack myStack;
     for (size_t i = 0; i < 5; i++)
     {
         myStack.Push("sNODE" + to_string(i));
@@ -64,8 +66,8 @@ int main()
         
     }
     
-    //myStack.Display();
-
+    myStack.Display();*/
+    /*
     //test Queue
     Queue *myQueue = new Queue();
 
