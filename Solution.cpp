@@ -30,7 +30,7 @@ void Solution::ShuntingYard(Queue* inputQ)
     // 3 4 2 * 1 5 - / +
 
     //const string input = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3"
-    //3 4 2 × 1 5 − 2 3 ^ ^ ÷ +
+    //3 4 2 × 1 5 − 2 3 ^ ^ / +
     //while tokens
 
     //mozna ceknei ze neni prazdna
@@ -141,39 +141,46 @@ void Solution::PostfixEval()
 {
     Stack operandStack = Stack();
     string tmp = string();
-    int nrOperands = 0;
+   // int nrOperands = 0;
     float x = 0;
     float y = 0;
     
     float res = 0;
 
+    ///SMAZ METODU NROPPERANDS JE TO BLBOST!!!!!!!!!!!
+    //3 4 2 × 1 5 − 2 3 ^ ^ / +
+    //3 4 2
+        // 4 * 2
+    //3 8
     while (!this->outputQ->isEmpty())
-    {
+    {   
+        cout << "\n\nBEGGINING:" << endl;
+        cout << "math stack" << endl;
+        operandStack.Display();
+
         string tmp = this->outputQ->Deque();
+        cout << "processing: "<< tmp << endl;
         if (this->IsNumeric(tmp))
         {
             operandStack.Push(tmp);
+            cout << "math stack in numeric" << endl;
+            operandStack.Display();
         }
         else
         {
-            nrOperands = this->GetNumberOfOperands(tmp);
-            if (nrOperands == 2)
-            {
-                x = stof(operandStack.Pop());
-                y = stof(operandStack.Pop());
+            cout << "math stack in else opperand" << endl;
+        operandStack.Display();
+            y = stof(operandStack.Pop());
+            x = stof(operandStack.Pop());
+            cout << "x:" << x << " " << tmp << " y:" << y << endl;
 
-                //do math
-                res = this->Calculation(x, y, tmp);
-                operandStack.Push(to_string(res));
-            }
-            
-            /*if (nrOperands == 1)
-            {
-                x = stof(operandStack.Pop());
-
-                res = this->Calculation(x, y, tmp);
-                operandStack.Push(to_string(res));
-            }*/
+            //do math
+            res = this->Calculation(x, y, tmp);
+            cout << "res: " << res << endl;
+            operandStack.Push(to_string(res));
+            //nrOperands = this->GetNumberOfOperands(tmp);
+            cout << "math stack konec else opperand" << endl;
+        operandStack.Display();
 
         }
         
@@ -207,7 +214,7 @@ float Solution::Calculation(float x, float y, string op)
     
     if ( !op.compare("^"))
     {
-        return pow(y,x);
+        return pow(x,y);
     } 
 
     return -10000000000;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

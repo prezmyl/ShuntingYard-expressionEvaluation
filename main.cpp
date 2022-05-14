@@ -23,7 +23,7 @@ int main()
     const string operators = "+-*/^";  //nebo neco jako enum??? vyctovym typem
     const string parenthesis = "()";
 
-    Queue* inputQ = ExpressionParser::Split(input3, operators + parenthesis);
+    Queue* inputQ = ExpressionParser::Split(input, operators + parenthesis);
 
     Solution* solution = new Solution(operators);
     solution->ShuntingYard(inputQ);
