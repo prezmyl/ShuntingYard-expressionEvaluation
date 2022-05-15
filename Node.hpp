@@ -12,7 +12,6 @@ class Node
         Node* next;
     public:
         Node(string data);
-        ~Node();
         string GetData();
         Node* GetNext();
         void SetNext(Node* ptr);

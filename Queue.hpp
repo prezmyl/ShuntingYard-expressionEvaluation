@@ -18,7 +18,6 @@ class Queue
         size_t GetCount();
         Node* GetFront();
         Node* GetRear();
-        ~Queue();
         bool isEmpty();
         void Display();
         void DequeAll();

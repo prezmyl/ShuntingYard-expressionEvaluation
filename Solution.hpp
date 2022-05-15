@@ -22,7 +22,6 @@ class Solution
         void ShuntingYard(Queue* inputQ);
         void PostfixEval();
         int GetOperatorPrio(string op);
-        int GetNumberOfOperands(string op);
         bool IsNumeric(string str);
         bool IsOperator(char ch, string delimitrList);
         int GetAssociate(string str);

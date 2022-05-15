@@ -12,7 +12,6 @@ class Stack
         size_t count; 
     public:
         Stack();
-        ~Stack();
         void Push(string data);
         string Pop();
         void PopAll();

@@ -10,10 +10,6 @@ Queue::Queue()
     this->count = 0;
 }
 
-Queue::~Queue()
-{
-    //cout <<__func__<< endl;
-}
 
 size_t Queue::GetCount()
 {
@@ -46,9 +42,7 @@ void Queue::Enque(string data)
     Node* toAdd = new Node(data);
     if (this->rear)
     {   
-        //pridavam do fronty, kde uz neco(ukazuje na to Stack.Rear) je, tak to co uz tam je musi ukazovat na novy vkladany   
         this->rear->SetNext(toAdd);
-        //(Stack.Rear) ted prepojime na novy posledni(ten vkladany)
         this->rear = toAdd;
     }
     else
@@ -67,7 +61,7 @@ string Queue::Deque()
     if (this->front)
     {
         Node* toRemove = this->front;
-        this->front = this->front->GetNext(); //pokud posledni prvek tak ten ukazuje na null a to nam udela prazdnou frontu(o co this->rear?)
+        this->front = this->front->GetNext(); 
         if (!this->front)
         {
             this->rear = nullptr;
@@ -86,7 +80,7 @@ void Queue::Display()
 {
     Node *current = this->front;
     size_t i = 0;
-    //size_t total = this->count;
+
     while (current)
     {
         cout << i << ".node\"" << current->GetData() << "\" | ";

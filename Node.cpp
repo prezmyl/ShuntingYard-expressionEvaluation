@@ -7,11 +7,6 @@ Node::Node(string data)
     this->next = nullptr;
 }
 
-Node::~Node()
-{
-    //cout <<__func__<< endl;
-}
-
 string Node::GetData()
 {   
     return this->data;

@@ -4,19 +4,12 @@ using namespace std;
 
 Stack::Stack()
 {
-    cout <<__func__<< endl;
     this->top = nullptr;
     this->count = 0;
 }
 
-Stack::~Stack()
-{
-  //  cout <<__func__<< endl;
-}
-
 bool Stack::isEmpty()
 {
-    //cout <<__func__<< endl;
     if (this->top)
     {
         return false;
@@ -27,13 +20,11 @@ bool Stack::isEmpty()
 
 size_t Stack::GetCount()
 {
-    //cout <<__func__<< endl;
     return this->count;
 }
 
 string Stack::GetTop()
 {
-    //cout <<__func__<< endl;
     if (this->top)
     {
         return this->top->GetData();
@@ -53,15 +44,12 @@ void Stack::Display()
     }
     
     cout << endl;
-    
-    
+
 }
 
 void Stack::Push(string data)
 {
-    //cout <<__func__<< endl;
     Node *toAdd = new Node(data);
-    //musim rozlisit prazdny/neprazdny?? poradi si s obojim??
     toAdd->SetNext(this->top);
     
     this->top = toAdd;
@@ -70,7 +58,6 @@ void Stack::Push(string data)
 
 string Stack::Pop()
 {
-    //cout <<__func__<< endl;
     if (this->top)
     {
         Node* toRemove = this->top;
@@ -87,7 +74,6 @@ string Stack::Pop()
 
 void Stack::PopAll()
 {
-    //cout <<__func__<< endl;
     while (!(this->isEmpty()))
     {
         this->Pop();
