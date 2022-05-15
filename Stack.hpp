@@ -1,10 +1,12 @@
 #ifndef STACK_H
 #define STACK_H
 
-//#include<iostream>
-//#include<string>
 #include "Node.hpp"
 
+/*!
+    Class Stack with basic functionality. 
+    Implemeted for practise class purposes. Has no robustness nor funcionality anywhere near the containers version
+*/
 class Stack
 {
     private:

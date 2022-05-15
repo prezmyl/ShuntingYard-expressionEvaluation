@@ -4,7 +4,9 @@
 #include<string>
 
 using namespace std;
-
+/*!
+    Class serves as an element for composing Stack and Queue
+*/
 class Node
 {
     private:

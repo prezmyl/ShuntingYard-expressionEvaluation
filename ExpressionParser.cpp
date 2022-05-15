@@ -22,7 +22,6 @@ bool ExpressionParser::IsThisDelimiter(char ch, string delimitrList)
     
 }
 
-//const string input2("3 + 4 * 2 / ( 1 - 5 )")
 
 Queue* ExpressionParser::Split(string str, string del)
 {

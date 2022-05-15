@@ -5,7 +5,6 @@ using namespace std;
 
 Solution::Solution(string operators)
 {
-   // this->inputQ = new Queue();
     this->outputQ = new Queue();
     this->operators = operators;
     this->result = 0;
@@ -13,9 +12,7 @@ Solution::Solution(string operators)
 
 Solution::~Solution()
 {
-    //this->inputQ->DequeAll();
     this->outputQ->DequeAll();
-    //delete inputQ;
     delete this->outputQ;
 }
 
@@ -68,7 +65,7 @@ void Solution::ShuntingYard(Queue* inputQ)
     {
         if (opStack.GetTop() == "(")
         {
-            ;//throw an exepton > operator mismatch
+            throw ("missmatch in parentheses");
         }       
         outputQ->Enque(opStack.GetTop());
         opStack.Pop();

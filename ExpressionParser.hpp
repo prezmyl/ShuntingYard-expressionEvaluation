@@ -5,6 +5,9 @@
 
 using namespace std;
 
+/*!
+ Class with static method that serve as a parser of the input string expression
+*/
 class ExpressionParser
 {
     public:

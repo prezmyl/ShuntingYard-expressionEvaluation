@@ -5,6 +5,10 @@
 
 #include "Node.hpp"
 
+/*!
+    Class Queue with basic functionality. 
+    Implemeted for practise class purposes. Has no robustness nor funcionality anywhere near the containers version
+*/
 class Queue
 {
     private:

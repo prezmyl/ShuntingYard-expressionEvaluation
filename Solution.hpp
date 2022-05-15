@@ -6,13 +6,14 @@
 #include "Queue.hpp"
 #include "Stack.hpp"
 #include "ExpressionParser.hpp"
-
+/*!
+ Class Solution it is where most of the logic is stored and its methods execute ShuntingYard and Postfix evaluation algorithms
+*/
 enum Associates { none, left_to_right, right_to_left };
 
 class Solution
 {
     private:
-        //Queue* inputQ;
         Queue* outputQ;
         string operators;
         float result;
